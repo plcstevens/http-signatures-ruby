@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module HttpSignatures
   class VerificationAlgorithm
     def self.create(algorithm)
       case algorithm
       when HttpSignatures::Algorithm::Hmac then Hmac.new(algorithm)
       when HttpSignatures::Algorithm::Rsa then Rsa.new(algorithm)
-      else raise UnknownAlgorithm.new(algorithm)
+      else raise UnknownAlgorithm, algorithm
       end
     end
 

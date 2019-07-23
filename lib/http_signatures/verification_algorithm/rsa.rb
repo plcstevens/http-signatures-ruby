@@ -1,4 +1,6 @@
-require "base64"
+# frozen_string_literal: true
+
+require 'base64'
 
 module HttpSignatures
   class VerificationAlgorithm
@@ -13,7 +15,7 @@ module HttpSignatures
           Base64.strict_decode64(provided_signature_base64),
           SigningString.new(
             header_list: header_list,
-            message: message,
+            message: message
           ).to_str
         )
       end

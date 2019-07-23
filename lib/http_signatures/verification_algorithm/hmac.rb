@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HttpSignatures
   class VerificationAlgorithm
     class Hmac
@@ -18,7 +20,7 @@ module HttpSignatures
           message: message,
           key: key,
           algorithm: @algorithm,
-          header_list: header_list,
+          header_list: header_list
         ).to_str
       end
     end
